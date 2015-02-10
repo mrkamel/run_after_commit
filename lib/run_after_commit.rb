@@ -8,12 +8,10 @@ module RunAfterCommit
   end
 
   def run_after_commit(method = nil, &block)
-    transaction do
-      self.class.connection.add_transaction_record self
+    after_commit_queue << Proc.new { send method } if method
+    after_commit_queue << block if block
 
-      after_commit_queue << Proc.new { self.send(method) } if method
-      after_commit_queue << block if block
-    end
+    run_after_commit_queue if self.class.connection.open_transactions.zero?
 
     true
   end
