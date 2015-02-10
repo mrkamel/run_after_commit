@@ -26,6 +26,8 @@ Include `RunAfterCommit` in your model and queue some code:
 class SomeModel < ActiveRecord::Base
   include RunAfterCommit
 
+  after_save :some_method
+
   def some_method
     run_after_commit do
       # Runs when the model is committed
