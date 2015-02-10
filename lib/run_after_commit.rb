@@ -9,6 +9,8 @@ module RunAfterCommit
 
   def run_after_commit(method = nil, &block)
     transaction do
+      after_commit_transaction.add_record self
+
       after_commit_queue << Proc.new { self.send(method) } if method
       after_commit_queue << block if block
     end
@@ -35,11 +37,10 @@ module RunAfterCommit
   end
 
   def clear_after_commit_queue
-    old_transaction = after_commit_transaction
-
+    after_commit_transaction.instance_variable_set "@run_after_commit_queue", []
     @after_commit_transaction = nil
 
-    old_transaction.instance_variable_set "@run_after_commit_queue", []
+    true
   end
 end
 
