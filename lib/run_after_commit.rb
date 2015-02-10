@@ -9,7 +9,7 @@ module RunAfterCommit
 
   def run_after_commit(method = nil, &block)
     transaction do
-      after_commit_transaction.add_record self
+      self.class.connection.add_transaction_record self
 
       after_commit_queue << Proc.new { self.send(method) } if method
       after_commit_queue << block if block
@@ -28,17 +28,12 @@ module RunAfterCommit
     clear_after_commit_queue
   end
 
-  def after_commit_transaction
-    @after_commit_transaction ||= self.class.connection.current_transaction
-  end
-
   def after_commit_queue
-    after_commit_transaction.instance_variable_get("@run_after_commit_queue") || after_commit_transaction.instance_variable_set("@run_after_commit_queue", [])
+    self.class.connection.instance_variable_get("@run_after_commit_queue") || self.class.connection.instance_variable_set("@run_after_commit_queue", [])
   end
 
   def clear_after_commit_queue
-    after_commit_transaction.instance_variable_set "@run_after_commit_queue", []
-    @after_commit_transaction = nil
+    self.class.connection.instance_variable_set "@run_after_commit_queue", []
 
     true
   end
