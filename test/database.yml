@@ -1,0 +1,17 @@
+
+sqlite:
+  adapter: sqlite3
+  database: ":memory:"
+
+mysql:
+  adapter: mysql2
+  database: run_after_commit
+  username: root
+  encoding: utf8
+
+postgres:
+  adapter: postgresql
+  database: run_after_commit
+  username: postgres
+  encoding: utf8
+
