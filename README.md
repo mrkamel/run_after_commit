@@ -1,5 +1,7 @@
 # RunAfterCommit
 
+[![Build Status](https://secure.travis-ci.org/mrkamel/run_after_commit.png?branch=master)](http://travis-ci.org/mrkamel/run_after_commit)
+
 Run code in an ActiveRecord model after it is committed.
 Requires ActiveRecord 4.x+
 
@@ -39,7 +41,7 @@ end
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/run_after_commit/fork )
+1. Fork it ( https://github.com/mrkamel/run_after_commit/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
