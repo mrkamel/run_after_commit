@@ -1,9 +1,4 @@
 
-appraise "3.2" do
-  gem "activerecord", "~> 3.2.18"
-  gem "run_after_commit", :path => "../"
-end
-
 appraise "4.0" do
   gem "activerecord", "~> 4.0.0"
   gem "run_after_commit", :path => "../"

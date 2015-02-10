@@ -1,6 +1,7 @@
 # RunAfterCommit
 
-Run code in an ActiveRecord model after it is committed
+Run code in an ActiveRecord model after it is committed.
+Requires ActiveRecord 4.x+
 
 ## Installation
 
