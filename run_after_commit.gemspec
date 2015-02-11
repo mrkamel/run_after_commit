@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["vetter@plainpicture.de"]
   spec.summary       = %q{Run code in an ActiveRecord model after it is committed}
   spec.description   = %q{Run code in an ActiveRecord model after it is committed}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mrkamel/run_after_commit"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
