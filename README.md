@@ -2,8 +2,10 @@
 
 [![Build Status](https://secure.travis-ci.org/mrkamel/run_after_commit.png?branch=master)](http://travis-ci.org/mrkamel/run_after_commit)
 
-Run code in an ActiveRecord model after it is committed.
-Requires ActiveRecord 4.x+
+Run code in an ActiveRecord model after it is committed
+or immediately if you're outside of a transaction.
+
+Requires ActiveRecord 3.2+ (Check travis)
 
 ## Installation
 
