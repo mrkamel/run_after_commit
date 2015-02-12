@@ -35,7 +35,7 @@ class SomeModel < ActiveRecord::Base
 
   def some_method
     run_after_commit do
-      # Runs when the model is committed
+      # Runs when the transaction is committed
     end
   end
 end
