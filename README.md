@@ -5,8 +5,6 @@
 Run code in an ActiveRecord model after it is committed
 or immediately if you're outside of a transaction.
 
-Requires ActiveRecord 3.2+ (Check travis)
-
 ## Installation
 
 Add this line to your application's Gemfile:
